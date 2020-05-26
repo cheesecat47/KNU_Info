@@ -1,0 +1,47 @@
+version: "3"
+
+services: 
+
+    httpd:
+        build:
+            context: ./apache_src/
+            dockerfile: ./Dockerfile
+        image: webp-httpd
+        container_name: webp-httpd-server
+        ports: 
+            - "80:80"
+        logging: 
+            driver: "json-file"
+            options:
+                max-file: "10"
+                max-size: "10m"
+
+    tomcat1:
+        build:
+            context: ./tomcat_src/
+            dockerfile: ./Dockerfile
+        environment:
+          - WORKER_NAME=node1
+        image: webp-tomcat
+        hostname: webp-tomcat1
+        container_name: webp-tomcat1
+        logging: 
+            driver: "json-file"
+            options: 
+                max-file: "10"
+                max-size: "10m"
+
+    tomcat2:
+        build:
+            context: ./tomcat_src/
+            dockerfile: ./Dockerfile
+        environment:
+          - WORKER_NAME=node2
+        image: webp-tomcat
+        hostname: webp-tomcat2
+        container_name: webp-tomcat2
+        logging: 
+            driver: "json-file"
+            options: 
+                max-file: "10"
+                max-size: "10m"
