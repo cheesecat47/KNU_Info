@@ -11,15 +11,17 @@
     	// 영어교육과 공지사항 "http://enged.knu.ac.kr/HOME/enged/sub.htm?nav_code=eng1465563428", 4
     	// 아동학부 공지사항 "http://child.knu.ac.kr/HOME/knuchild/sub.htm?nav_code=knu1468564874", 4
     
-ParseResult class
+ParseResult class (ParseResult.java 파일에 존재)
 	ArrayList<String> getNum(); //공지번호 반환
 	ArrayList<String> getName(); //글 제목 반환
 	ArrayList<String> getDate() //게시 날짜 반환
 
-공지사항 목록파서
+공지사항 목록파서 (ParseFunc.java 파일의 ParseFunc. 클래스 내부 static 함수)
 	static ParseResult ListCrawling(String URL, int pdate);
 		위의 내용 중 하나를 매개변수로 주면  ParseResult클래스로 반환
 
-공지사항 내용 파서
+공지사항 내용 파서(ParseFunc.java 파일의 ParseFunc. 클래스 내부 static 함수)
 	static String ParseContents(String URL);
 		공지 게시물 주소를 매개변수로 주면 내용부분 html을 String으로 반환
+
+실제 사용 예시는 main.java 참고
