@@ -15,3 +15,7 @@ INSERT INTO DEPARTMENT(Name,Url) VALUES("아동학부","http://child.knu.ac.kr/H
 INSERT INTO USER(Name, Id, Pw, Dept_num) VALUES("user01","user01","1234",1);
 INSERT INTO USER(Name, Id, Pw, Dept_num) VALUES("user02","user02","1234",2);
 
+UPDATE USER SET Keyword_list="aaaa,bbbb,cccc" WHERE User_num=1;
+commit;
+
+
