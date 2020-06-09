@@ -1,7 +1,25 @@
-(function (){
-	var sess = window.sessionStorage;
-	for (key in sess) {
-		console.log(key)
-		console.log(sessionStorage.getItem(key))
+/*(function (){
+	var changeBgImg,
+		baseURL,
+		setBaseUrl,
+	
+	setBaseUrl = function() {
+		var host = document.location.host;
+		console.log('host ' + host);
+		baseURL = host+"/webprogramming/assets/customImages/"
 	}
+		
+	changeBgImg = function() {
+		setBaseUrl()
+		console.log("baseURL " + baseURL)
+		var imagePath = baseURL;
+	}
+	
+	changeBgImg();
+	
 })();
+*/
+
+/*function changeBgImg(imgName) {
+	console.log("changeBgImg "+imgName);
+}*/

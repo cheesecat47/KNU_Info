@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.Enumeration" %>
 <% session.setAttribute("Name","홍길동"); %>
 <!DOCTYPE html>
 <html>
@@ -31,8 +32,40 @@
 		</form>
 	</div>
 	
-	
 	<%@ include file="../include/footer.jsp"%>
-	<script src="../assets/js/bgimg.js"></script>
+	
+	<% 
+		String name;
+		String value;
+		
+		Enumeration en = session.getAttributeNames();
+		
+		while (en.hasMoreElements()) {
+			name = en.nextElement().toString();
+			value = session.getAttribute(name).toString();
+			
+			out.println(name + " " + value);
+			if (name.equals("BgImg")) {
+	%>
+	<script>	
+		function setImageUrl(imgName) {
+			var host = document.location.host;
+			//console.log('host ' + host);
+			baseURL = host+"/webprogramming/assets/customImages/"
+			return baseURL + imgName
+		}
+		
+		function changeBgImg(imgName) {
+			//console.log("changeBgImg "+imgName);
+			var imgURL = setImageUrl(imgName);
+			console.log("imgURL "+ imgURL);
+			document.body.style.backgroundImage=imgURL;
+		}
+		changeBgImg("<%=value%>");
+	</script>
+	<%
+			}
+		}
+	%>
 </body>
 </html>
