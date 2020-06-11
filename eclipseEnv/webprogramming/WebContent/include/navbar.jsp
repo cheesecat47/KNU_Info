@@ -6,7 +6,7 @@
 	  	if(userName==null){
 	  	%> 		
 	  		<ul class="nav navbar-nav navbar-right">
-		      <li><a href="#" class="loginLink">Login</a></li>
+		      <li><a href="../views/login.jsp" class="loginLink">Login</a></li>
     		</ul>
 	  	<%
 	  	}
