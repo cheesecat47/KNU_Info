@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse">
 	  <a class="navbar-brand" href="main.jsp">
-	  	<img src="../assets/images/pagelogo.jpg" width="50%" height="50%">
+	  	<img src="../assets/images/pagelogo.png" width="50%" height="50%">
 	  </a>
 	  <% String userName=(String)session.getAttribute("Name"); 
 	  	if(userName==null){
