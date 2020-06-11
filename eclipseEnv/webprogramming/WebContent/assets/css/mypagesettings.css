@@ -1,0 +1,26 @@
+#Notice{
+	padding:5%;
+	border:1px solid lightgray;
+}
+
+#Notice > h2{
+	margin-bottom:4%;
+}
+
+#Notice .table{
+	text-align:center;
+}
+#settings{
+	margin-top:5%;
+	margin-bottom:3%;
+	position:relative;
+	left:80%
+}
+
+.alarm>input{
+	display:none;
+}
+.alarm>label{
+	color:#fee401;
+	font-size:20px;
+}
