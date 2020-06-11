@@ -9,8 +9,8 @@
 </head>
 <body>
 	<%@ include file="../include/navbar.jsp"%>
-	<Button type="button" class="btn btn-outline-dark" id="settings" onclick="">설정</Button>
-	<div class="container" id="Notice">
+	<Button type="button" class="btn btn-outline-dark" id="settings" onclick="location.href='customizePage.jsp'">설정</Button>
+	<div class="container backgroundColor" id="Notice">
   		<h2>공지 사항</h2>       
   		<table class="table">
 		    <thead>
@@ -44,6 +44,9 @@
 		  </table>
 	</div>
 	<%@ include file="../include/footer.jsp"%>
+	
+	<!-- to Process Background Image -->
+	<%@ include file="../include/bgImgProcess.jsp"%>
 </body>
 <script>
 $(document).ready(function(){

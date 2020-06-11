@@ -14,7 +14,7 @@
 <body>
 	<%@ include file="../include/navbar.jsp"%>
 	
-	<div class="container customizeBox">
+	<div class="container backgroundColor">
 		<form method="post" class="form-horizontal" enctype="multipart/form-data" action="../views/customizePageProcess.jsp">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">키워드 : </label>

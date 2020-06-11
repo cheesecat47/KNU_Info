@@ -26,7 +26,7 @@
 	<div class="img_wrapper">
 		<div id="bottom_text">
 			<h1>여러분에게 필요한 공지만 저희가 찾아드릴게요!</h1>
-			<input type="button" class="btn btn-secondary" value="Log In" onclick="location.href='#'"/>
+			<input type="button" class="btn btn-secondary" value="Log In" onclick="location.href='login.jsp'"/>
 		</div>
 	</div>
 	
