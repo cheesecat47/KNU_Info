@@ -12,7 +12,7 @@
 	// 이클립스 톰캣은 소스를 바로 사용하지 않고 다른데서 시뮬레이션? 하는듯.
 	out.println(filePath);
 	
-	int maxSize = 5 * 1024 * 1024; // 5MB
+	int maxSize = 2 * 1024 * 1024; // 2MB
 	String encType = "utf-8";
 	MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, encType, new DefaultFileRenamePolicy());
 
