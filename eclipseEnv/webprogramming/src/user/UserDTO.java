@@ -7,11 +7,11 @@ public class UserDTO {
 	private String userId;
 	private String userPw;
 	private String userBgImg;
-	private ArrayList<String> userKeywords;
+	private String userKeywords;
 	private String userDept;
 	
 	public UserDTO(int userNum, String userName, String userId, String userPw, String userBgImg,
-			ArrayList<String> userKeywords,String userDept) {
+			String userKeywords,String userDept) {
 		this.userNum = userNum;
 		this.userName = userName;
 		this.userId = userId;
@@ -61,11 +61,11 @@ public class UserDTO {
 		this.userBgImg = userBgImg;
 	}
 
-	public ArrayList<String> getUserKeywords() {
+	public String getUserKeywords() {
 		return userKeywords;
 	}
 
-	public void setUserKeywords(ArrayList<String> userKeywords) {
+	public void setUserKeywords(String userKeywords) {
 		this.userKeywords = userKeywords;
 	}
 
