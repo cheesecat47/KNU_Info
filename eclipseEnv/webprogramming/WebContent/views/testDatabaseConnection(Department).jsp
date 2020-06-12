@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="department.*" %>
+<%@ page import="dept.*" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -16,9 +16,8 @@
 		</thead>
 		<tbody>
 <%
-	DepartmentDAO departmentDAO=new DepartmentDAO();
-	ArrayList<DepartmentDTO> departmentInfos=departmentDAO.getDepartmentData();
-	for(DepartmentDTO department : departmentInfos){
+	ArrayList<DeptDTO> departmentInfos=DeptDAO.getDepartmentInfo();
+	for(DeptDTO department : departmentInfos){
 		%>
 		<tr>
 			<td><%=department.getDeptNum()%></td>

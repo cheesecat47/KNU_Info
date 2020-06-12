@@ -8,32 +8,37 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<table>
-		<thead>
-			<th>Num</th>
-			<th>Name</th>
-			<th>Id</th>
-			<th>Pw</th>
-			<th>Background Image</th>
-			<th>Keyword_list</th>
-			
-		</thead>
-		<tbody>
 <%
-	UserDAO userDAO=new UserDAO();
-	UserDTO userInfo=userDAO.getUserData("user01");
-		%>
-		<tr>
-			<td><%=userInfo.getUserNum()%></td>
-			<td><%=userInfo.getUserName()%></td>
-			<td><%=userInfo.getUserId()%></td>
-			<td><%=userInfo.getUserPw()%></td>
-			<td><%=userInfo.getUserBgImg()%></td>
-			<td><%=String.join(",", userInfo.getUserKeywords())%></td>
-		</tr>
-		<%
+/*
+	UserDTO userInfo=UserDAO.getUserInfo("user01");
+	System.out.println("유저 이름:" + userInfo.getUserName());
+	System.out.println("유저 아이디: "+userInfo.getUserId());
+	System.out.println("유저 비밀번호:" + userInfo.getUserPw());
+	System.out.println("유저 배경화면 소스: " + userInfo.getUserBgImg());
+	System.out.println("유저 키워드 목록: "+ userInfo.getUserKeywords());
+	
+	System.out.println("\n*******************배경화면을 sample.png로 등록한 다음*******************\n");
+	UserDAO.setBackgroundImage(1,"sample.png");  //1번 user_num을 가지고 있는 사람의 배경화면 정보를 변경
+	
+	userInfo=UserDAO.getUserInfo("user01");
+	System.out.println("유저 이름:" + userInfo.getUserName());
+	System.out.println("유저 아이디: "+userInfo.getUserId());
+	System.out.println("유저 비밀번호:" + userInfo.getUserPw());
+	System.out.println("유저 배경화면 소스: " + userInfo.getUserBgImg());
+	System.out.println("유저 키워드 목록: "+ userInfo.getUserKeywords());
+	
+	System.out.println("\n*******************키워드를  채용,인턴으로 등록한 다음*******************\n");
+	UserDAO.setKeyWords(1, "채용,인턴");  //1번 user_num을 가지고 있는 사람의 키워드 정보를 변경
+	
+	userInfo=UserDAO.getUserInfo("user01");
+	System.out.println("유저 이름:" + userInfo.getUserName());
+	System.out.println("유저 아이디: "+userInfo.getUserId());
+	System.out.println("유저 비밀번호:" + userInfo.getUserPw());
+	System.out.println("유저 배경화면 소스: " + userInfo.getUserBgImg());
+	System.out.println("유저 키워드 목록: "+ userInfo.getUserKeywords());
+*/
+
+
 %>
-		</tbody>
-	</table>
 </body>
 </html>
