@@ -12,8 +12,8 @@ INSERT INTO DEPARTMENT(Name,Url) VALUES("영어교육과","http://enged.knu.ac.k
 INSERT INTO DEPARTMENT(Name,Url) VALUES("아동학부","http://child.knu.ac.kr/HOME/knuchild/sub.htm?nav_code=knu1468564874");
 
 # Test Data For User
-INSERT INTO USER(Name, Id, Pw, Dept_num) VALUES("user01","user01","1234",1);
-INSERT INTO USER(Name, Id, Pw, Dept_num) VALUES("user02","user02","1234",2);
+INSERT INTO USER(User_num,Name, Id, Pw, Dept_num) VALUES(2017110115,"user01","user01","1234",1);
+INSERT INTO USER(User_num,Name, Id, Pw, Dept_num) VALUES(1234567890,"user02","user02","1234",2);
 
 UPDATE USER SET Keyword_list="aaaa,bbbb,cccc" WHERE User_num=1;
 commit;
