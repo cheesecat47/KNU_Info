@@ -1,11 +1,11 @@
-package department;
+package dept;
 
-public class DepartmentDTO {
+public class DeptDTO {
 	private int deptNum;
 	private String deptName;
 	private String deptUrl;
 	
-	public DepartmentDTO(int deptNum, String deptName, String deptUrl) {
+	public DeptDTO(int deptNum, String deptName, String deptUrl) {
 		this.deptNum = deptNum;
 		this.deptName = deptName;
 		this.deptUrl = deptUrl;
