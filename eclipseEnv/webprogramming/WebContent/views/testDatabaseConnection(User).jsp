@@ -37,8 +37,13 @@
 	System.out.println("유저 배경화면 소스: " + userInfo.getUserBgImg());
 	System.out.println("유저 키워드 목록: "+ userInfo.getUserKeywords());
 */
-
-
+/*
+	UserDAO.signUp(2020123456, "user03", "user03", "1234", 2);
+	UserDTO userInfo=UserDAO.getUserInfo("user03");
+	
+	System.out.println("2020123456 학번의 아이디는: " + UserDAO.findUserId(2020123456));
+	System.out.println("2020123456 학번, user03 아이디의  비밀번호는: " + UserDAO.findUserPw(2020123456, "user03"));
+*/
 %>
 </body>
 </html>

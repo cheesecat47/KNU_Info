@@ -43,16 +43,17 @@ public class UserDAO {
 		return userInfo;
 	}
 	
-	public static boolean signUp(String userName,String userId,String userPw,int userMajor) {
-		String sql="INSERT INTO USER(userName, userId, userPw, userMajor) VALUES(?,?,?,?)";
+	public static boolean signUp(int userNum, String userName,String userId,String userPw,int userMajor) {
+		String sql="INSERT INTO USER(User_num,Name, Id, Pw, Dept_num) VALUES(?,?,?,?,?)";
 		DatabaseConnection dbAPI=new DatabaseConnection();
 		int result=0;
 		try {
 			PreparedStatement psmt=dbAPI.getPreparedStatement(sql);
-			psmt.setString(1,userName);
-			psmt.setString(2,userId);
-			psmt.setString(3,userPw);
-			psmt.setInt(4,userMajor);
+			psmt.setInt(1,userNum);
+			psmt.setString(2,userName);
+			psmt.setString(3,userId);
+			psmt.setString(4,userPw);
+			psmt.setInt(5,userMajor);
 			result=psmt.executeUpdate();
 			if(result!=0)
 				return true;
@@ -75,15 +76,14 @@ public class UserDAO {
 			return false;
 	}
 	
-	public static boolean setBackgroundImage(int accountNum, String imgPath) {
+	public static boolean setBackgroundImage(int userNum, String imgPath) {
 		String sql="UPDATE USER SET BgImg=? WHERE User_num= ?";
 		DatabaseConnection dbAPI=new DatabaseConnection();
 		int result=0;
 		try {
 			PreparedStatement psmt=dbAPI.getPreparedStatement(sql);
 			psmt.setString(1,imgPath);
-			psmt.setInt(2,accountNum);
-		
+			psmt.setInt(2,userNum);
 			result=psmt.executeUpdate();
 			if(result!=0)
 				return true;
@@ -97,14 +97,14 @@ public class UserDAO {
 			dbAPI.closeAll();
 		}
 	}
-	public static boolean setKeyWords(int accountNum, String keywordList) {
+	public static boolean setKeyWords(int userNum, String keywordList) {
 		String sql="UPDATE USER SET Keyword_list=? WHERE User_num= ?";
 		DatabaseConnection dbAPI=new DatabaseConnection();
 		int result=0;
 		try {
 			PreparedStatement psmt=dbAPI.getPreparedStatement(sql);
 			psmt.setString(1,keywordList);
-			psmt.setInt(2,accountNum);
+			psmt.setInt(2,userNum);
 			result=psmt.executeUpdate();
 			if(result!=0)
 				return true;
@@ -154,4 +154,57 @@ public class UserDAO {
 		}
 		return idList;
 	}
+	public static String findUserId(int userNum) {
+		String sql="SELECT Id FROM USER WHERE User_num=?";
+		String userId = null;
+		DatabaseConnection dbAPI=new DatabaseConnection();
+		ResultSet res=null;
+		try {
+			PreparedStatement psmt = dbAPI.getPreparedStatement(sql);
+			psmt.setInt(1, userNum);
+			res=psmt.executeQuery();
+			if(res.next())
+				userId=res.getString(1);
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if(res!=null)
+					res.close();
+				dbAPI.closeAll();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return userId;
+	}
+	public static String findUserPw(int userNum,String userId) {
+		String sql="SELECT Pw FROM USER WHERE User_num=? and Id=?";
+		String userPw = null;
+		DatabaseConnection dbAPI=new DatabaseConnection();
+		ResultSet res=null;
+		try {
+			PreparedStatement psmt = dbAPI.getPreparedStatement(sql);
+			psmt.setInt(1, userNum);
+			psmt.setString(2, userId);
+			res=psmt.executeQuery();
+			if(res.next())
+				userPw=res.getString(1);
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if(res!=null)
+					res.close();
+				dbAPI.closeAll();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return userPw;
+	}
+	
 }
