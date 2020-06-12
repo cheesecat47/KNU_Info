@@ -54,8 +54,10 @@ public class DatabaseConnection {
 				if(st!=null)
 					st.close();
 			}
+			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+		
 	}
 }

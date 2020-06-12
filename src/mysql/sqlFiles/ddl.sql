@@ -8,7 +8,7 @@ CREATE TABLE USER(
     Name VARCHAR(10) NOT NULL,
     Id VARCHAR(20) NOT NULL,
     Pw VARCHAR(20) NOT NULL,
-    BgImg VARCHAR(20),
+    BgImg VARCHAR(100),
     Keyword_list VARCHAR(50),
     Dept_num INT NOT NULL,
     FOREIGN KEY(Dept_num) REFERENCES DEPARTMENT(Dept_num)
