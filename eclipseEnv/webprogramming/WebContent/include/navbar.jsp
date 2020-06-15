@@ -14,7 +14,7 @@
 	  	%>
 	  		<span class='navbar-text float-right'><%=userName%>님, 환영합니다.</span>
 	  		<ul class="nav navbar-nav navbar-right">
-		      <li><a href="#" class="logoutLink">Logout</a></li>
+		      <li><a href="../views/logoutProcess.jsp" class="logoutLink">Logout</a></li>
     		</ul>
 	  	<%
 	  	}

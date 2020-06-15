@@ -13,6 +13,7 @@
 </head>
 <body>
 	<%@ include file="../include/navbar.jsp"%>
+	<%@ include file="../include/isLogIn.jsp"%>
 	
 	<div class="container backgroundColor">
 		<form method="post" class="form-horizontal" enctype="multipart/form-data" action="../views/customizePageProcess.jsp">
