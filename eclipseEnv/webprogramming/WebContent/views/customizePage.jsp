@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Enumeration" %>
 <% 
-	//session.setAttribute("UserId", "2017110115");
-	//session.setAttribute("Name", "홍길동"); 
-	//if (session.getAttribute("keyword") == null){
-	//	session.setAttribute("keyword", "대회,졸업,설명회");
-	//}
+	/*session.setAttribute("UserId", "2017110115");
+	session.setAttribute("Name", "홍길동"); 
+	if (session.getAttribute("keyword") == null){
+		session.setAttribute("keyword", "대회,졸업,설명회");
+	}*/
 %>
 <!DOCTYPE html>
 <html>
@@ -52,14 +52,14 @@
 			String name = en_kwd.nextElement().toString();
 			String value = session.getAttribute(name).toString();
 			
-			out.println(name + " " + value);
+			//out.println(name + " " + value);
 			if (name.equals("keyword")) {
 				// 만약 이미 설정된 키워드가 있으면
 	%>
 	<script>	
 		function showCurrentKeywords(kwd) {
 			var kwd_input = document.getElementById("kwd_input")
-			console.log(kwd_input);
+			//console.log(kwd_input);
 			kwd_input.value = kwd;
 		}
 		showCurrentKeywords("<%=value%>");
