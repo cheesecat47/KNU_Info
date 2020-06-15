@@ -3,7 +3,9 @@
 <%@ page import="java.util.Enumeration" %>
 <% 
 	session.setAttribute("Name", "홍길동"); 
-	session.setAttribute("keyword", "대회,졸업,설명회"); 
+	if (session.getAttribute("keyword") == null){
+		session.setAttribute("keyword", "대회,졸업,설명회");
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -15,12 +17,14 @@
 	<%@ include file="../include/navbar.jsp"%>
 	<%@ include file="../include/isLogIn.jsp"%>
 	
+	<div style="height: 50px;"></div>
+	
 	<div class="container backgroundColor">
 		<form method="post" class="form-horizontal" enctype="multipart/form-data" action="../views/customizePageProcess.jsp">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">키워드 : </label>
 				<div class="col-sm-10">
-					<input type="text" id="kwd_input" class="form-control input-lg" name="keywords" placeholder="ex) 대회, 졸업, 설명회 - 콤마(,)로 구분해서 최대 10개까지 입력 가능합니다."/>
+					<input type="text" id="kwd_input" class="form-control input-lg" name="keyword" placeholder="ex) 대회, 졸업, 설명회 - 콤마(,)로 구분해서 최대 10개까지 입력 가능합니다."/>
 				</div>
 			</div>
 			<div class="form-group">

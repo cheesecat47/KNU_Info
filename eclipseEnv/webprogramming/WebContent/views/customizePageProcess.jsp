@@ -4,6 +4,7 @@
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.io.*" %>
+
 <%
 	request.setCharacterEncoding("UTF-8");
 
@@ -18,10 +19,17 @@
 
 	Enumeration params = multi.getParameterNames();
 	
+	String keywords = "";
+	
 	while (params.hasMoreElements()) {
 		String name = (String) params.nextElement();
 		String value = multi.getParameter(name);
 		out.println(name + " : " + value + "<br>");
+		if (name.equals("keyword")) {
+			keywords = value;
+			out.println("keyword : " + keywords + "<br>");
+			session.setAttribute(name, value);
+		}
 	}
 	
 	Enumeration files = multi.getFileNames();
@@ -46,5 +54,4 @@
 	}
 	
 	//response.sendRedirect("mypage.jsp");
-	response.sendRedirect("customizePage.jsp");
 %>
