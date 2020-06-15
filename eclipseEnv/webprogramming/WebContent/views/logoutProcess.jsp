@@ -3,7 +3,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	session.removeAttribute("Name");
+	session.invalidate();
 
 	response.sendRedirect("login.jsp");
 %>

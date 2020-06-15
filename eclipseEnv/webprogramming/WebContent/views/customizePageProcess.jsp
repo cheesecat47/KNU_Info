@@ -53,5 +53,5 @@
 		}
 	}
 	
-	//response.sendRedirect("mypage.jsp");
+	response.sendRedirect("mypage.jsp");
 %>
