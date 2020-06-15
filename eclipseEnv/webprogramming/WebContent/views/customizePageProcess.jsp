@@ -4,6 +4,8 @@
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.io.*" %>
+<%@ page import="user.*" %>
+<%@ page import="java.util.ArrayList" %>
 
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -33,6 +35,7 @@
 	}
 	
 	Enumeration files = multi.getFileNames();
+	String imgName = "";
 	
 	while (files.hasMoreElements()) {
 		String name = (String) files.nextElement();
@@ -48,9 +51,59 @@
 		if (file != null) {
 			// 파일 있으면
 			out.println(file.length()+"<br>");
+			imgName = filename;
 			session.setAttribute("BgImg", filename);
 			out.println("session.BgImg = " + (String) session.getAttribute("BgImg"));
+		} else {
+			if ((String) session.getAttribute("BgImg") != ""){
+				session.removeAttribute("BgImg");
+			}
 		}
+	}
+	
+	
+	// update db
+	//UserDTO userInfo=UserDAO.getUserInfo((String) session.getAttribute("UserId"));
+	UserDTO userInfo=UserDAO.getUserInfo("user01");
+	
+	int userNum = userInfo.getUserNum();
+	String userName = userInfo.getUserName();
+	String userId = userInfo.getUserId();
+	String userPw = userInfo.getUserPw();
+	String userBgImg = userInfo.getUserBgImg();
+	String userKeywords = userInfo.getUserKeywords();
+	
+	System.out.println("유저 이름:" + userName);
+	System.out.println("유저 아이디: "+ userId);
+	System.out.println("유저 비밀번호:" + userPw);
+	System.out.println("유저 배경화면 소스: " + userBgImg);
+	System.out.println("유저 키워드 목록: "+ userKeywords);
+	
+	if (imgName != ""){
+		// 이미지 존재하면
+		System.out.println("\n*******************배경화면을 sample.png로 등록한 다음*******************\n");
+		UserDAO.setBackgroundImage(userNum, imgName);  //1번 user_num을 가지고 있는 사람의 배경화면 정보를 변경
+		
+		userInfo=UserDAO.getUserInfo("user01");
+		System.out.println("유저 배경화면 소스: " + userInfo.getUserBgImg());
+	} else {
+		UserDAO.setBackgroundImage(userNum, null);  //1번 user_num을 가지고 있는 사람의 배경화면 정보를 변경
+		
+		userInfo=UserDAO.getUserInfo("user01");
+		System.out.println("유저 배경화면 소스: " + userInfo.getUserBgImg());
+	}
+	
+	if (keywords != ""){
+		System.out.println("\n*******************키워드를  채용,인턴으로 등록한 다음*******************\n");
+		UserDAO.setKeyWords(userNum, keywords);  //1번 user_num을 가지고 있는 사람의 키워드 정보를 변경
+		
+		userInfo=UserDAO.getUserInfo("user01");
+		System.out.println("유저 키워드 목록: "+ userInfo.getUserKeywords());
+	} else {
+		UserDAO.setKeyWords(userNum, null);  //1번 user_num을 가지고 있는 사람의 키워드 정보를 변경
+		
+		userInfo=UserDAO.getUserInfo("user01");
+		System.out.println("유저 키워드 목록: "+ userInfo.getUserKeywords());
 	}
 	
 	response.sendRedirect("mypage.jsp");

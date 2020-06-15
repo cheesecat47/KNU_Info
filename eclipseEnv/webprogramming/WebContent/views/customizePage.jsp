@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Enumeration" %>
 <% 
-	session.setAttribute("Name", "홍길동"); 
-	if (session.getAttribute("keyword") == null){
-		session.setAttribute("keyword", "대회,졸업,설명회");
-	}
+	//session.setAttribute("UserId", "2017110115");
+	//session.setAttribute("Name", "홍길동"); 
+	//if (session.getAttribute("keyword") == null){
+	//	session.setAttribute("keyword", "대회,졸업,설명회");
+	//}
 %>
 <!DOCTYPE html>
 <html>
