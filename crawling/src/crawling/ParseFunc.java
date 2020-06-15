@@ -41,8 +41,8 @@ static ParseResult ListCrawling(String URL) {
 	            for(Element e1 : trs) {
 	            	if(e1.child(0).text().equals("번호")) {
 	            		continue;
-	            	}else if(e1.child(0).text().equals("공지") && i !=0){
-	            		
+	            	}else if(e1.child(0).text().equals("공지") && i !=1){
+	            		continue;
 	            	}else {
 	            		String a = e1.child(0).text();
 	            		String b = e1.child(1).text();
