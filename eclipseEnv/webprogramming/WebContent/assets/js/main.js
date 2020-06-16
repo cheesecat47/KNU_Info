@@ -14,11 +14,11 @@
 					image1: [0, 0],
 					image3: [0, 0],
 					bottom_text: [0, 0],
-					img1_opacity: [1, 0],
-					img3_opacity: [0, 1],
+					img1_opacity: [0.8, 0],
+					img3_opacity: [0, 0.6],
 					txt_opacity: [0, 0],
-					img1_scale: [1, 0.7],
-					img3_scale: [0.7, 1],
+					img1_scale: [1, 1.3],
+					img3_scale: [1.3, 1],
 				}
 			},
 			{
@@ -27,10 +27,10 @@
 					image3: [0, 0],
 					bottom_text: [0, 0],
 					img1_opacity: [0, 0],
-					img3_opacity: [1, 0],
+					img3_opacity: [0.6, 0],
 					txt_opacity: [0, 1],
-					img1_scale: [0.7, 0.7],
-					img3_scale: [1, 0.7],
+					img1_scale: [1.3, 1.3],
+					img3_scale: [1, 1.3],
 				}
 			},
 			{
@@ -41,8 +41,8 @@
 					img1_opacity: [0, 0],
 					img3_opacity: [0, 0],
 					txt_opacity: [1, 0],
-					img1_scale: [0.7,0.7],
-					img3_scale: [0.7,0.7],
+					img1_scale: [1.3,1.3],
+					img3_scale: [1.3,1.3],
 				}
 			}
 		],
@@ -97,7 +97,7 @@
 			keyframes[i].animationValues.bottom_text[0] = windowHeight * (2 - i);
 			keyframes[i].animationValues.bottom_text[1] = windowHeight * (1 - i);
 		}
-		totalScrollHeight += 2 * pixelDuration;
+		totalScrollHeight += 1.5 * pixelDuration;
 		
 		
 		document.body.style.height = totalScrollHeight + 'px';

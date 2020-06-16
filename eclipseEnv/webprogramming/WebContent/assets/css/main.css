@@ -32,12 +32,92 @@ div, article, section, p, ul, li, span, label { box-sizing: border-box; }
 	border: 2px solid grey;
 }
 
+/* https://designshack.net/articles/css/css3-cookbook-7-super-easy-css-recipes-to-copy-and-paste/ */
+#txt_container {
+	/*stitching*/
+	outline: 1px dashed #98abb9;
+	outline-offset: -5px;
+	
+	background-color: #ececec;
+	
+	/*shadow*/
+	-webkit-box-shadow: 2px 2px 2px #000;
+	-moz-box-shadow: 2px 2px 2px #000;
+	box-shadow: 2px 2px 2px #000;
+}
+
+/* https://www.w3schools.com/howto/howto_css_image_text.asp */
+#img1_text {
+	z-index: 3;
+	font-size: 70px;
+	line-height: 190px;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+.img1_pos {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.img1_container {
+	height: 200px;
+	width: 600px;
+	margin: 100px auto;
+}
+
 #img3 {
 	transform: translate3d(0px, 0px, 0px);
 	opacity: 0.0;
 }
 
+#img3_text {
+	z-index: 3;
+	font-size: 30px;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: center;
+	transform: translate(10%, -50%);
+}
+
+.img3_pos {
+	position: absolute;
+	top: 55%;
+	right: 20%;
+}
+
+.img3_container {
+	height: 140px;
+	width: 720px;
+	margin: 50px auto;
+}
+
 #bottom_text {
 	transform: translate3d(0px, 0px, 0px);
 	opacity: 0.0;
+}
+
+.bottom_pos {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.bottom_pos > h1 {
+	text-align: center;
+	transform: translate(0, 50%)
+}
+
+.bottom_container {
+	height: 200px;
+	width: 600px;
+	margin: 100px auto;
+}
+
+#loginbtn {
+	transform: translateY(300px);
 }
