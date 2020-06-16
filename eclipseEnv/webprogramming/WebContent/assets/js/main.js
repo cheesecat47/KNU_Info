@@ -14,8 +14,8 @@
 					image1: [0, 0],
 					image3: [0, 0],
 					bottom_text: [0, 0],
-					img1_opacity: [0.8, 0],
-					img3_opacity: [0, 0.6],
+					img1_opacity: [1, 0],
+					img3_opacity: [0, 1],
 					txt_opacity: [0, 0],
 					img1_scale: [1, 1.3],
 					img3_scale: [1.3, 1],
@@ -27,7 +27,7 @@
 					image3: [0, 0],
 					bottom_text: [0, 0],
 					img1_opacity: [0, 0],
-					img3_opacity: [0.6, 0],
+					img3_opacity: [1, 0],
 					txt_opacity: [0, 1],
 					img1_scale: [1.3, 1.3],
 					img3_scale: [1, 1.3],
@@ -92,12 +92,12 @@
 			console.log(thisframe);
 			keyframes[i].animationValues.image1[0] = windowHeight * (-i);
 			keyframes[i].animationValues.image1[1] = windowHeight * (-1 - i);
-			keyframes[i].animationValues.image3[0] = windowHeight * (1 - i);
-			keyframes[i].animationValues.image3[1] = windowHeight * (-i);
+			keyframes[i].animationValues.image3[0] = windowHeight * (1.2 - i);
+			keyframes[i].animationValues.image3[1] = windowHeight * (0.2 -i);
 			keyframes[i].animationValues.bottom_text[0] = windowHeight * (2 - i);
 			keyframes[i].animationValues.bottom_text[1] = windowHeight * (1 - i);
 		}
-		totalScrollHeight += 1.5 * pixelDuration;
+		totalScrollHeight += 1.15 * pixelDuration;
 		
 		
 		document.body.style.height = totalScrollHeight + 'px';
@@ -144,10 +144,10 @@
 			return; // restrict scroll range
 		}
 		
-		if (scrollY >= 0 && scrollY < pixelDuration) {
+		if (scrollY >= 0 && scrollY < 1.2 * pixelDuration) {
 			currentKeyFrame = 0;
 			relativeScrollY = scrollY;
-		} else if (scrollY >= pixelDuration && scrollY < 2*pixelDuration) {
+		} else if (scrollY >= 1.2 * pixelDuration && scrollY < 2*pixelDuration) {
 			currentKeyFrame = 1;
 			relativeScrollY = scrollY - pixelDuration;
 		} else {

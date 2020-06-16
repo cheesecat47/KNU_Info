@@ -30,6 +30,13 @@ div, article, section, p, ul, li, span, label { box-sizing: border-box; }
 	transform: translate3d(0px, 0px, 0px) scale(1);
 	opacity: 0.0;
 	border: 2px solid grey;
+	width: 100%;
+	height: 100vh;
+}
+
+#main_img1 {
+	width: 100%;
+	height: 100%;
 }
 
 /* https://designshack.net/articles/css/css3-cookbook-7-super-easy-css-recipes-to-copy-and-paste/ */
