@@ -9,7 +9,7 @@ import user.UserDTO;
 public class UserDAO {
 	
 	public static UserDTO getUserInfo(String id) {
-		String sql="SELECT U.User_num, U.Name, U.Id, U.Pw, U.BgImg, U.Keyword_list, D.Name FROM USER U,DEPARTMENT D WHERE U.Dept_num=D.Dept_num and U.Id=?";
+		String sql="SELECT U.User_num, U.Name, U.Id, U.Pw, U.BgImg, U.Keyword_list, D.Name, D.Url FROM USER U,DEPARTMENT D WHERE U.Dept_num=D.Dept_num and U.Id=?";
 		UserDTO userInfo = null;
 		DatabaseConnection dbAPI=new DatabaseConnection();
 		ResultSet res=null;
@@ -25,7 +25,8 @@ public class UserDAO {
 				String userBgImg=res.getString(5);
 				String userKeywords=res.getString(6);
 				String userDept=res.getString(7);
-				userInfo=new UserDTO(userNum,userName,userId,userPw,userBgImg,userKeywords,userDept);
+				String userDeptURL=res.getString(8);
+				userInfo=new UserDTO(userNum,userName,userId,userPw,userBgImg,userKeywords,userDept,userDeptURL);
 			}			
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
