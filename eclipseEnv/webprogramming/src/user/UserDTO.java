@@ -9,9 +9,10 @@ public class UserDTO {
 	private String userBgImg;
 	private String userKeywords;
 	private String userDept;
+	private String userDeptURL;
 	
 	public UserDTO(int userNum, String userName, String userId, String userPw, String userBgImg,
-			String userKeywords,String userDept) {
+			String userKeywords,String userDept,String userDeptURL) {
 		this.userNum = userNum;
 		this.userName = userName;
 		this.userId = userId;
@@ -19,6 +20,7 @@ public class UserDTO {
 		this.userBgImg = userBgImg;
 		this.userKeywords = userKeywords;
 		this.userDept = userDept;
+		this.userDeptURL = userDeptURL;
 	}
 
 	public int getUserNum() {
@@ -75,6 +77,14 @@ public class UserDTO {
 
 	public void setUserDept(String userDept) {
 		this.userDept = userDept;
+	}
+
+	public String getUserDeptURL() {
+		return userDeptURL;
+	}
+
+	public void setUserDeptURL(String userDeptURL) {
+		this.userDeptURL = userDeptURL;
 	}
 		
 }
