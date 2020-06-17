@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="user.UserDAO" %>
+<%@ page import="user.UserDTO" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +20,7 @@
 				<br>
 				<h4>Welcome to join us</h4>
 				<br>
+				<input type="text" name="stdNum" class="fadeIn first" maxlength="15" required placeholder="학번">
 				<input type="text" name="name" class="fadeIn first" maxlength="15" required placeholder="이름">
 				<div>
 					<span><input type="text" name="id" id="id" class="fadeIn second" onkeydown="inputId()" maxlength="15" required placeholder="아이디"></span>
@@ -50,7 +54,7 @@
 		    	  				this.setCustomValidity("");
 		    				}
 		 					else {
-		      					this.setCustomValidity("학과명을 정확히 입력해주세요");
+		      					this.setCustomValidity("학과명을 정확히 입력해 주세요");
 		    				}
 		  				});
 					}
@@ -66,8 +70,17 @@
 		function signUpCheck() {
 			var form = document.signUpForm;
 			
+			if(form.stdNum.value == "") {
+				alert("학번을 입력해 주세요");
+				return false;
+			}
+			else if(isNaN(form.stdNum.value)) {
+				alert("학번은 숫자로 입력해 주세요");
+				return false;
+			}
+			
 			if(form.name.value == "") {
-				alert("이름을 입력하세요");
+				alert("이름을 입력해 주세요");
 				return false;
 			}
 			
@@ -77,59 +90,69 @@
 			}
 			
 			if(form.password.value == "") {
-				alert("패스워드를 입력하세요");
+				alert("패스워드를 입력해 주세요");
 				return false;
 			}
 			else if(form.password.value.length < 4) {
-				alert("패스워드는 4자리 이상 입력해주세요");
+				alert("패스워드는 4자리 이상 입력해 주세요");
 				return false;
 			}
 			
 			if(form.password.value != form.passwordCheck.value) {
-				alert("패스워드를 동일하게 입력해주세요");
+				alert("패스워드를 동일하게 입력해 주세요");
 				return false;
 			}
-			
-			
+		
 			//form.submit();
 			return true;
 		}
+		
+		// 서버에 있는 id값들을 모두 가져옴
+		<%
+			ArrayList<String> idList = UserDAO.getIdList();
+			StringBuffer values = new StringBuffer();
+			
+			for(int i=0; i<idList.size(); i++) {
+				if(values.length() > 0) {
+					values.append(',');
+				}
+				
+				values.append('"').append(idList.get(i)).append('"');
+			}
+		%>
 		
 		<%-- 아이디 중복확인 버튼 클릭 시 --%>
 		function checkIdDup() {
 			var id = document.getElementById("id").value;
 			var idDup = document.getElementById("idDup").value;
-			
+			var regExp = /^[a-zA-Z0-9]{4,15}$/
 			
 			if(!id) {
 				alert("아이디를 입력해 주세요");
 				return false;
 			}
 			else if(id.length < 4) {
-				alert("아이디는 4자리 이상 입력해주세요");
+				alert("아이디는 4자리 이상 입력해 주세요");
 				return false;
 			}
-			<%--
-			else if() {
-				alert("한글 및 특수문자는 사용할 수 없습니다");
+			else if(!regExp.test(id)) {
+				alert("아이디는 영문 대소문자와 숫자로만 입력해 주세요");
 				return false;
 			}
-			--%>
 			
 			
-			<%-- 서버에 있는 아이디 값과 비교
-			else {
-				var param = "id=" + id;
-				
-				서버 관련 코드
-				...
-				...
-				...
-				...
+			<%-- 서버에서 가져온 아이디 값과 비교 --%>
+			var idCheck = 0;
+			var list = [<%=values.toString()%>];
+			
+			for(var i=0; i<list.length; i++) {
+				if(id == list[i]) {
+					alert("중복된 아이디입니다. 다시 입력해 주세요");
+					return false;
+				}
 			}
-			--%>
 			
-			
+			alert("사용 가능한 아이디입니다");
 			document.signUpForm.idDup.value = "idchecked";
 			
 			return true;
