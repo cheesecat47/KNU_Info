@@ -10,40 +10,58 @@
 	<%@ include file="../include/navbar.jsp"%>
 	
 	<%
-		String id =	request.getParameter("id");
-		String password = request.getParameter("password");
+		String UId = request.getParameter("id");
+		String UPwd = request.getParameter("password");
 		
 		// 로그인 성공 시 logCheck = 1, 실패 시 logCheck = -1
 		int logCheck = 0;
 		
 		UserDTO userInfo = null;
 
-		userInfo = UserDAO.getUserInfo(id);		//서버에 있는 user정보를 가져옴
+		userInfo = UserDAO.getUserInfo(UId);		//서버에 있는 user정보를 가져옴
 		if(userInfo == null) {
-			logCheck = -1;
+			logCheck = -1;	
 		}
 		else
 		{
-			if(password.equals(userInfo.getUserPw()))	//서버에 있는 password값 가져와서 비교
-			{
+			if(UPwd.equals(userInfo.getUserPw())) {	//서버에 있는 password값 가져와서 비교
 				logCheck = 1;
 			}
-			else
+			else {
 				logCheck = -1;
+			}
 		}
-				
-		// 로그인 성공 시 ./myPage.jsp로 redirect, 실패 시 ./login.jsp로 redirect
-		String loginRedirect = "";
 		
+		int UNum = 0;
+		try {
+			// 세션 설정을 위한 변수
+			UNum = userInfo.getUserNum();
+			String UName = userInfo.getUserName();
+			String UBgImg = userInfo.getUserBgImg();
+			String UKeywords = userInfo.getUserKeywords();
+			String UDept = userInfo.getUserDept();
+			String UDeptURL = userInfo.getUserDeptURL();
+			
+			// 세션 생성
+			session.setAttribute("UserNum", UNum);
+			session.setAttribute("UserName", UName);
+			session.setAttribute("UserId", UId);
+			session.setAttribute("UserPw", UPwd);
+			session.setAttribute("UserBgImg", UBgImg);
+			session.setAttribute("UserKeywords", UKeywords);
+			session.setAttribute("UserDept", UDept);
+			session.setAttribute("UserDeptURL", UDeptURL);
+		} catch(NullPointerException e) {
+			logCheck = -1;
+		}
+	
 		if(logCheck == 1) {
-			session.setAttribute("Name", id);	// 세션 생성
-			loginRedirect = "./myPage.jsp";
+			response.sendRedirect("./myPage.jsp");
 		}
 		else if(logCheck == -1) {
-			loginRedirect = "./login.jsp?loginRedirect=-1";
+			response.sendRedirect("./login.jsp?loginRedirect=-1");
 		}
 		
-		response.sendRedirect(loginRedirect);
 	%>
 	
 	

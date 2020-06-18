@@ -20,7 +20,7 @@
 				<br>
 				<h4>Welcome to join us</h4>
 				<br>
-				<input type="text" name="stdNum" class="fadeIn first" maxlength="15" required placeholder="학번">
+				<input type="text" name="stdNum" class="fadeIn first" maxlength="10" required placeholder="학번">
 				<input type="text" name="name" class="fadeIn first" maxlength="15" required placeholder="이름">
 				<div>
 					<span><input type="text" name="id" id="id" class="fadeIn second" onkeydown="inputId()" maxlength="15" required placeholder="아이디"></span>
