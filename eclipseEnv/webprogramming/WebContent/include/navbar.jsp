@@ -7,7 +7,7 @@
 	<% 
 		request.setCharacterEncoding("UTF-8");
 	
-		String userName=(String)session.getAttribute("Name"); 
+		String userName=(String)session.getAttribute("UserName"); 
 		if(userName==null){
 	%> 		
 	<ul class="nav navbar-nav navbar-right">
