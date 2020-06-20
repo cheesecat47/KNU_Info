@@ -9,6 +9,8 @@
 </head>
 <body>
 	<%@ include file="../include/navbar.jsp"%>
+	<%@ include file="../include/isLogIn.jsp"%>
+	
 	<Button type="button" class="btn btn-outline-dark" id="settings" onclick="location.href='customizePage.jsp'">설정</Button>
 	<div class="container backgroundColor" id="Notice">
   		<h2>공지 사항</h2>       

@@ -56,9 +56,11 @@
 		}
 	
 		if(logCheck == 1) {
-			response.sendRedirect("./myPage.jsp");
+			response.sendRedirect("./mypage.jsp");
 		}
 		else if(logCheck == -1) {
+			// 로그인 실패하면 세션에 저장해둔 정보 지우고 새로 로그인하도록
+			session.invalidate();
 			response.sendRedirect("./login.jsp?loginRedirect=-1");
 		}
 		

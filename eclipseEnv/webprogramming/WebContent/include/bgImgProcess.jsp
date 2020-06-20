@@ -13,7 +13,7 @@
 		String value = session.getAttribute(name).toString();
 		
 		//out.println(name + " " + value);
-		if (name.equals("BgImg")) {
+		if (name.equals("UserBgImg")) {
 %>
 <script>	
 	function setImageUrl(imgName) {
