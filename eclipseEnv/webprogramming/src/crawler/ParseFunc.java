@@ -1,4 +1,4 @@
-package crawling;
+package crawler;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class ParseFunc {
-static ParseResult ListCrawling(String URL) {
+	public static ParseResult ListCrawling(String URL) {
 		
 		ParseResult parseResult = new ParseResult();
 		String mainURL = URL.split(".kr/")[0] + ".kr/";
@@ -79,7 +79,7 @@ static ParseResult ListCrawling(String URL) {
 		//parseResult.sort();
 		return parseResult;
 	}
-	static String ParseContents(String URL) {
+	public static String ParseContents(String URL) {
 		String result = null;
 		try {
          

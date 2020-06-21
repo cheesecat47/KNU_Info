@@ -1,4 +1,4 @@
-package crawling;
+package crawler;
 
 public class TotalInfo{
 	String info_num;
