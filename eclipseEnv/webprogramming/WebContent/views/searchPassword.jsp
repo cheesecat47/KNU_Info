@@ -13,7 +13,7 @@
 	<%@ include file="../include/navbar.jsp"%>
 	<div class="wrapper fadeInDown">
 		<div id="formContent">
-			<form name="searchPasswordForm" action="./searchPasswordProcess.jsp" method="post" onsubmit="return searchPassword()">
+			<form name="searchPasswordForm" action="../processes/searchPasswordProcess.jsp" method="post" onsubmit="return searchPassword()">
 				<input type="text" name="stdNum" class="fadeIn second" maxlength="10" required placeholder="학번">
 				<input type="text" name="id" id="id" class="fadeIn third" maxlength="15" required placeholder="아이디">
 				<hr>

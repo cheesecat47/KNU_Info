@@ -11,9 +11,17 @@
 </head>
 <body>
 	<%@ include file="../include/navbar.jsp"%>
+	<%
+		String isLogined = (String)session.getAttribute("UserName");
+		if(isLogined != null){
+			out.println("<script>");
+			out.println("history.back();");
+			out.println("</script>");
+		}
+	%>
 	<div class="wrapper fadeInDown">
 		<div id="formContent">
-			<form name="loginForm" action="./loginProcess.jsp" method="post" onsubmit="return loginCheck()">
+			<form name="loginForm" action="../processes/loginProcess.jsp" method="post" onsubmit="return loginCheck()">
 				<input type="text" name="id" class="fadeIn second" maxlength="15" required placeholder="아이디">
 				<input type="password" name="password" class="fadeIn third" maxlength="15" required placeholder="비밀번호">
 				<hr>

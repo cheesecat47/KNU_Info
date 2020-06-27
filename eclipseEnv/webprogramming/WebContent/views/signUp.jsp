@@ -16,7 +16,7 @@
 	<%@ include file="../include/navbar.jsp"%>
 	<div class="wrapper fadeInDown">
 		<div id="formContent">
-			<form name="signUpForm" action="./signUpComplete.jsp" method="post" onsubmit="return signUpCheck()">
+			<form name="signUpForm" action="../processes/signUpProcess.jsp" method="post" onsubmit="return signUpCheck()">
 				<br>
 				<h4>Welcome to join us</h4>
 				<br>
@@ -77,6 +77,14 @@
 			else if(isNaN(form.stdNum.value)) {
 				alert("학번은 숫자로 입력해 주세요");
 				return false;
+			}
+			else{
+				var stdNum=Number(form.stdNum.value);
+				if(stdNum > 2147483647){
+					alert("학번이 입력할 수 있는 값의 최대값을 벗어났습니다.");
+					return false;
+				}
+					
 			}
 			
 			if(form.name.value == "") {

@@ -6,5 +6,5 @@
 	String isLogined = (String)session.getAttribute("UserName");
 	if (isLogined == null) {
 		response.sendRedirect("login.jsp");	
-	}
+	}	
 %>

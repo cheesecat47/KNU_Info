@@ -21,12 +21,10 @@
 		        <th>번호</th>
 		        <th>제목</th>
 		        <th>등록일</th>
-		      	<th>알림</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		    <% 
-		    session.setAttribute("UserDeptURL","http://computer.knu.ac.kr/06_sub/02_sub.html");
 		    String URL=(String)session.getAttribute("UserDeptURL");
 		    ParseResult noticeList=ParseFunc.ListCrawling(URL);
 		    for(TotalInfo notice : noticeList.getResult()){
@@ -35,7 +33,6 @@
 		    	<td><%=notice.getNum()%></td>
 		    	<td><a target="_blank" href=<%=notice.getAddr()%> ><%=notice.getName() %></a></td>
 		    	<td><%=notice.getDate() %></td>
-		    	<td><div class="alarm"><input type="radio"><label>&#9734;</label></input></div></td>
 		    </tr>
 		    <%} %>	
 		    </tbody>

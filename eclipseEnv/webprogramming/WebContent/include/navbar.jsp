@@ -23,7 +23,7 @@
 	
 	<ul class="nav navbar-nav navbar-right">
 		<li><span class='navbar-text float-right'><%=userName%>님, 환영합니다!</span></li>
-		<li><a href="../views/logoutProcess.jsp" class="logoutLink  float-right">Logout</a></li>
+		<li><a href="../processes/logoutProcess.jsp" class="logoutLink  float-right">Logout</a></li>
 	</ul>
 	<%
 	}
