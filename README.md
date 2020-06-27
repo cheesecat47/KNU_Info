@@ -1,23 +1,32 @@
-# KNUCSE WebProgramming team project
+# KNU Info
+> 2020년 1학기 [경북대학교][knu] [컴퓨터학부][knucse] 고급웹프로그래밍 6팀 프로젝트입니다.
 
-## How to run
-If you are running on Ubuntu:
-```bash
-$ sudo ./dkcp-up.sh
-```
+![mainpage](docs/mainpage.gif)
 
-If you are running on Mac:
-```zsh
-$ ./dkcp-up.sh
-```
+## 각 페이지 설명
 
-If you are running on Windows 10:  
-__You have to install Docker Desktop for Windows first!__
-```powershell
-> cp .\webp\ .\src\tomcat_src\webapps\webp\
-> cd .\src\
-> docker-compose up -d --build
-```
+![page1](docs/page1.jpg)
+페이지 설명
 
-Open your internet browser and go to:
-http://localhost/webp/index.jsp
+## 데모 영상
+
+[]()
+
+## 개발 환경
+
+* Eclipse EE
+* Tomcat 9.0
+* jsoup
+
+## 팀원 정보
+
+신주용 – [cheesecat47](https://github.com/cheesecat47) – cheesecat47@gmail.com
+문찬성 – [chanSeong95](https://github.com/chanSeong95) – ckan0822@gmail.com
+이형찬 – [eclairs1010](https://github.com/eclairs1010) – eclairs1010@gmail.com
+정제현 – [JehyunJung](https://github.com/JehyunJung) – toojey7@gmail.com
+
+[https://github.com/cheesecat47/KNU_Info](https://github.com/cheesecat47/KNU_Info)
+
+
+[knu]: http://www.knu.ac.kr/
+[knucse]: http://computer.knu.ac.kr/
