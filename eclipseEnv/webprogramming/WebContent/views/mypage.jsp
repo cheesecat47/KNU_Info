@@ -7,7 +7,7 @@
 <head>
     <%@ include file="../include/head.jsp"%>
     <link rel="stylesheet" href="../assets/css/mypagesettings.css"/>
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="../assets/css/datatables.min.css"/>
 </head>
 <body>
 	<%@ include file="../include/navbar.jsp"%>
@@ -43,7 +43,7 @@
 	<!-- to Process Background Image -->
 	<%@ include file="../include/bgImgProcess.jsp"%>
 </body>
-<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="../assets/js/datatables.min.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){
 	$('#noticeList').DataTable();
