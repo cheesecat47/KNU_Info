@@ -11,6 +11,7 @@
 </head>
 <body>
 	<%@ include file="../include/navbar.jsp"%>
+	<%@ include file="../include/isLogIn.jsp"%>
 	<Button type="button" class="btn btn-outline-dark" id="settings" onclick="location.href='customizePage.jsp'">설정</Button>
 	<div class="container backgroundColor" id="Notice">
   		<h2>공지 사항</h2>       
@@ -24,7 +25,9 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		    <% String URL="http://computer.knu.ac.kr/06_sub/02_sub.html?";
+		    <% 
+		    session.setAttribute("UserDeptURL","http://computer.knu.ac.kr/06_sub/02_sub.html");
+		    String URL=(String)session.getAttribute("UserDeptURL");
 		    ParseResult noticeList=ParseFunc.ListCrawling(URL);
 		    for(TotalInfo notice : noticeList.getResult()){
 		    %>
