@@ -14,7 +14,7 @@
 	<div style="height: 50px;"></div>
 	
 	<div class="container backgroundColor">
-		<form method="post" class="form-horizontal" enctype="multipart/form-data" action="../views/customizePageProcess.jsp">
+		<form method="post" class="form-horizontal" enctype="multipart/form-data" action="../processes/customizePageProcess.jsp">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">키워드 : </label>
 				<div class="col-sm-10">
@@ -45,7 +45,7 @@
 			String name = en_kwd.nextElement().toString();
 			String value = session.getAttribute(name).toString();
 			
-			out.println(name + " " + value);
+			//out.println(name + " " + value);
 			if (name.equals("UserKeywords")) {
 				// 만약 이미 설정된 키워드가 있으면
 	%>

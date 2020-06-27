@@ -11,27 +11,26 @@
 	
 	<%
 		String stdNum = request.getParameter("stdNum");
-	
 		int STDNUM = 0;
-		String Id = null;
+		String id = request.getParameter("id");
+		String Password = null;
 		
 		try {
 			STDNUM = Integer.parseInt(stdNum);
-			Id = UserDAO.findUserId(STDNUM);
+			Password = UserDAO.findUserId(STDNUM);
 			
-			if(Id == null) {
-				response.sendRedirect("./searchId.jsp?searchRedirect=-1");
+			Password = UserDAO.findUserPw(STDNUM, id);
+			if(Password == null) {
+				response.sendRedirect("../views/searchPassword.jsp?searchRedirect=-1");
 			}
 			else {
-				response.sendRedirect("./searchId.jsp?searchRedirect=" + Id);
+				response.sendRedirect("../views/searchPassword.jsp?searchRedirect=" + Password);
 			}
 		} catch (NumberFormatException e) {
-			response.sendRedirect("./searchId.jsp?searchRedirect=-1");
+			response.sendRedirect("../views/searchPassword.jsp?searchRedirect=-1");
 		} catch (Exception e) {
-			response.sendRedirect("./searchId.jsp?searchRedirect=-1");
+			response.sendRedirect("../views/searchPassword.jsp?searchRedirect=-1");
 		}
-		
-		
 	%>
 	
 	

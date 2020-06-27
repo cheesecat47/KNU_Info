@@ -13,7 +13,7 @@
 	String filePath = request.getServletContext().getRealPath("assets/customImages");
 	//...webprogramming\eclipseEnv\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\webprogramming\assets\customImages
 	// 이클립스 톰캣은 소스를 바로 사용하지 않고 다른데서 시뮬레이션? 하는듯.
-	out.println(filePath);
+	//out.println(filePath);
 	
 	int maxSize = 2 * 1024 * 1024; // 2MB
 	String encType = "utf-8";
@@ -26,11 +26,11 @@
 	while (params.hasMoreElements()) {
 		String name = (String) params.nextElement();
 		String value = multi.getParameter(name);
-		out.println(name + " : " + value + "<br>");
+		//out.println(name + " : " + value + "<br>");
 		if (name.equals("keyword")) {
 			keywords = value;
 			session.setAttribute("UserKeywords", value);
-			out.println("session keyword : " + session.getAttribute("UserKeywords") + "<br>");
+			//out.println("session keyword : " + session.getAttribute("UserKeywords") + "<br>");
 		}
 	}
 	
@@ -43,17 +43,18 @@
 		String original = multi.getOriginalFileName(name);
 		String type = multi.getContentType(name);
 		File file = multi.getFile(name);
-		
+		/*
 		out.println(name+"<br>");
 		out.println(filename+"<br>");
 		out.println(original+"<br>");
 		out.println(type+"<br>");
+		*/
 		if (file != null) {
 			// 파일 있으면
 			out.println(file.length()+"<br>");
 			imgName = filename;
 			session.setAttribute("UserBgImg", filename);
-			out.println("session.UserBgImg = " + (String) session.getAttribute("UserBgImg"));
+			//out.println("session.UserBgImg = " + (String) session.getAttribute("UserBgImg"));
 		} else {
 			if ((String) session.getAttribute("UserBgImg") != ""){
 				session.removeAttribute("UserBgImg");
@@ -121,5 +122,5 @@
 	System.out.println("유저 키워드 목록: "+ userKeywords);
 	System.out.println();
 	
-	//response.sendRedirect("mypage.jsp");
+	response.sendRedirect("../views/mypage.jsp");
 %>
