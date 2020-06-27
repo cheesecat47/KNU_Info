@@ -4,4 +4,5 @@
 <link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="../assets/css/navbarsettings.css"/>
 <link rel="stylesheet" href="../assets/css/footersettings.css"/>
+<link rel="stylesheet" href="../assets/css/sharedStyle.css"/>
 <script src="../assets/js/jquery-3.2.1.min.js"></script>
