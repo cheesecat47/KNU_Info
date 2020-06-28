@@ -73,8 +73,16 @@
 <script src="../assets/js/datatables.min.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){
+	/* https://datatables.net/reference/option/lengthMenu */
+	$('#noticeList').dataTable( {
+		"lengthMenu": [ 5, 10, 25 ]
+	} );
+	$('#schoolNoticeList').dataTable( {
+		"lengthMenu": [ 5, 10, 25 ]
+	} );
 	var table = $('#noticeList').DataTable();
 	var table2 = $('#schoolNoticeList').DataTable();
+	
 	
 // to Process keywords	
 <% 
