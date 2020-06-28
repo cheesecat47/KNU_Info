@@ -20,8 +20,8 @@ public class main {
     	// 영어교육과 공지사항 "http://enged.knu.ac.kr/HOME/enged/sub.htm?nav_code=eng1465563428"
     	// 아동학부 공지사항 "http://child.knu.ac.kr/HOME/knuchild/sub.htm?nav_code=knu1468564874"
     	
-        ParseResult parse = ParseFunc.ListCrawling("http://computer.knu.ac.kr/06_sub/02_sub.html?");
-
+        //ParseResult parse = ParseFunc.ListCrawling("http://knu.ac.kr/wbbs/wbbs/bbs/btin/stdList.action?menu_idx=42");
+        ParseResult parse = SchoolInfoParse.ListCrawling();
         
         for(int i = 0 ; i < parse.result.size(); i++) {
         	System.out.print(parse.result.get(i).getNum() + " ");

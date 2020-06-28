@@ -63,7 +63,7 @@ static ParseResult ListCrawling(String URL) {
 	            	tmpURL = mainURL + html.getElementsByClass("paging").get(0).select("a").get(0).attr("href");
 	            }else {
 	            	if(URL.contains("computer."))
-	            		tmpURL = URL + "&page=" + (i+1);
+	            		tmpURL = URL + "?&page=" + (i+1);
 	            	else
 	            		tmpURL = URL + "&btin.page=" + (i+1);
 	            }
