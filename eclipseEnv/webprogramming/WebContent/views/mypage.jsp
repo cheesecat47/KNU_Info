@@ -46,7 +46,28 @@
 <script src="../assets/js/datatables.min.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){
-	$('#noticeList').DataTable();
+	console.log('start datatable')
+	var table = $('#noticeList').DataTable();
+	console.log('end datatable')
+	
+// to Process keywords	
+<% 
+	Enumeration<String> en_kwd = session.getAttributeNames();
+		
+	while (en_kwd.hasMoreElements()) {
+		String name = en_kwd.nextElement().toString();
+		String value = session.getAttribute(name).toString();
+			
+		//out.println(name + " " + value);
+		if (name.equals("UserKeywords")) {
+			// 만약 이미 설정된 키워드가 있으면
+%>
+	/* https://datatables.net/reference/api/draw() */
+	table.search("<%=value%>").draw();
+<%
+		}
+	}
+%>
 });
 
 </script>
