@@ -14,7 +14,7 @@
 	<%@ include file="../include/isLogIn.jsp"%>
 	<Button type="button" class="btn btn-outline-dark" id="settings" onclick="location.href='customizePage.jsp'">설정</Button>
 	<div class="container backgroundColor" id="Notice">
-  		<h2>공지 사항</h2>       
+  		<h2>학과 공지 사항</h2>       
   		<table class="table" id="noticeList">
 		    <thead>
 		      <tr>
@@ -38,6 +38,33 @@
 		    </tbody>
 		  </table>
 	</div>
+	
+	<p><br></p>
+	
+	<div class="container backgroundColor" id="Notice">
+  		<h2>학교 공지 사항</h2>       
+  		<table class="table" id="schoolNoticeList">
+		    <thead>
+		      <tr>
+		        <th>번호</th>
+		        <th>제목</th>
+		        <th>등록일</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    <% 
+		    noticeList=SchoolInfoParse.ListCrawling();
+		    for(TotalInfo notice : noticeList.getResult()){
+		    %>
+		    <tr>
+		    	<td><%=notice.getNum()%></td>
+		    	<td><a target="_blank" href=<%=notice.getAddr()%> ><%=notice.getName() %></a></td>
+		    	<td><%=notice.getDate() %></td>
+		    </tr>
+		    <%} %>	
+		    </tbody>
+		  </table>
+	</div>
 	<%@ include file="../include/footer.jsp"%>
 	
 	<!-- to Process Background Image -->
@@ -46,9 +73,16 @@
 <script src="../assets/js/datatables.min.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){
-	console.log('start datatable')
+	/* https://datatables.net/reference/option/lengthMenu */
+	$('#noticeList').dataTable( {
+		"lengthMenu": [ 5, 10, 25 ]
+	} );
+	$('#schoolNoticeList').dataTable( {
+		"lengthMenu": [ 5, 10, 25 ]
+	} );
 	var table = $('#noticeList').DataTable();
-	console.log('end datatable')
+	var table2 = $('#schoolNoticeList').DataTable();
+	
 	
 // to Process keywords	
 <% 
@@ -64,6 +98,7 @@ $(document).ready(function(){
 %>
 	/* https://datatables.net/reference/api/draw() */
 	table.search("<%=value%>").draw();
+	table2.search("<%=value%>").draw();
 <%
 		}
 	}
