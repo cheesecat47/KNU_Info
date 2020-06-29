@@ -42,7 +42,7 @@
 	<p><br></p>
 	
 	<div class="container backgroundColor" id="Notice">
-  		<h2>본관 공지 사항 - 학사 공지</h2>       
+  		<h2>학교 공지 사항</h2>       
   		<table class="table" id="schoolNoticeList">
 		    <thead>
 		      <tr>
