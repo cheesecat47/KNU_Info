@@ -18,7 +18,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">키워드 : </label>
 				<div class="col-sm-10">
-					<input type="text" id="kwd_input" class="form-control input-lg" name="keyword" placeholder="ex) 대회, 졸업, 설명회 - 콤마(,)로 구분해서 최대 10개까지 입력 가능합니다."/>
+					<input type="text" id="kwd_input" class="form-control input-lg" name="keyword" placeholder="원하시는 키워드 하나를 입력해주세요."/>
 				</div>
 			</div>
 			<div class="form-group">
