@@ -61,7 +61,7 @@
 
 ## 데모 영상
 
-On Youtube: <https://youtu.be/tHkSTKjeQSA>  
+On Youtube: <https://youtu.be/9ouNuz7PaTw>  
 
 ## SCM
 <https://github.com/cheesecat47/KNU_Info>  
